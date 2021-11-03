@@ -1,8 +1,3 @@
-# Imports
-
-# Functions
-
-# Make sure that input has no numbers
 def string_input(question):
     valid = False
 
@@ -26,4 +21,7 @@ def split_message(word):
 
     return list(word)
 
+
+message = string_input("What is your message: ")
+print(split_message(message))
 
