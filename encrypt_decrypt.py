@@ -1,5 +1,3 @@
-# Functions
-
 # Make sure that input has no numbers
 def string_input(question):
     valid = False
@@ -67,48 +65,28 @@ def decrypt(text, s):
     return result
 
 
-# Main Loop
-loop = False
-while not loop:
+message = string_input("What is your message: ")
 
-    # Ask user for message
-    message = string_input("What is your message (type \"quit\" if you want to stop using the cipher: ")
+keycheck = False
+while not keycheck:
+    key = int_check("What is your encryption/decryption key (0 - 25 only): ")
+    if key < 0 or key > 25:
+        keycheck = True
+        print("Please enter a whole number between 0 - 25")
 
-    # Check for exit code
-    if message == "quit":
-        loop = True
-        print("Thanks for using the cipher")
-        break
 
-    # Ask user for key/shift value
-    keycheck = False
-    while not keycheck:
-        key = int_check("What is your encryption/decryption key (0 - 25 only): ")
+edcheck = False
+while not edcheck:
+    choice = string_input("Do you want to encrypt or decrypt? ")
+    if choice == "encrypt":
+        final = encrypt(message, key)
+        edcheck = True
+    elif choice == "decrypt":
+        final = decrypt(message, key)
+        edcheck = True
+    else:
+        print("Please enter only \"encrypt\" or \"decrypt\"")
 
-        # Check if its between 0 - 25
-        if key < 0 or key > 25:
-            print("Please enter a whole number between 0 - 25")
-        else:
-            keycheck = True
-
-    # Ask the user if they want to encrypt/decrypt their message
-    edcheck = False
-    while not edcheck:
-        choice = string_input("Do you want to encrypt or decrypt? ")
-
-        if choice == "encrypt":
-            final = encrypt(message, key)
-            edcheck = True
-
-        elif choice == "decrypt":
-            final = decrypt(message, key)
-            edcheck = True
-
-        else:
-            print("Please enter only \"encrypt\" or \"decrypt\"")
-
-    # Print original message, key, and new message
-    print(f"Original message: {message}")
-    print(f"Shift value: {key}")
-    print(f"New message: {final}")
-    print()
+print(f"Original message: {message}")
+print(f"Shift value: {key}")
+print(f"New message: {final}")
