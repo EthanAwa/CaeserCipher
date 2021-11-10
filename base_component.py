@@ -21,7 +21,7 @@ def string_input(question):
 
 # Make sure that input is integer only
 def int_check(question):
-    error = "Please enter a whole number that is more than 0 (1, 2, 3...)\n"
+    error = "Please enter a whole number that is more than 0 (1, 2, 3...)"
 
     valid = False
     while not valid:
