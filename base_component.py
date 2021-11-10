@@ -83,11 +83,11 @@ while not loop:
     # Ask user for key/shift value
     keycheck = False
     while not keycheck:
-        key = int_check("What is your encryption/decryption key (0 - 25 only): ")
+        key = int_check("What is your encryption/decryption key (1 - 25 only): ")
 
-        # Check if its between 0 - 25
+        # Check if its between 1 - 25
         if key < 0 or key > 25:
-            print("Please enter a whole number between 0 - 25")
+            print("Please enter a whole number between 1 - 25")
         else:
             keycheck = True
 
