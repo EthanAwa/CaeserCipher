@@ -72,7 +72,7 @@ loop = False
 while not loop:
 
     # Ask user for message
-    message = string_input("What is your message (type \"quit\" if you want to stop using the cipher: ")
+    message = string_input("What is your message (type \"quit\" if you want to stop using the cipher): ")
 
     # Check for exit code
     if message == "quit":
